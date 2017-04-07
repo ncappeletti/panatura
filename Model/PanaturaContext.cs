@@ -10,7 +10,7 @@ namespace panatura.Model
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Server=KPSTATION\SQLEXPRESS;Database=PanaturaDB;Trusted_Connection=True;");
+            optionsBuilder.UseSqlServer(@"Server=localhost\SQLEXPRESS;Database=PanaturaDB;Trusted_Connection=True;");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

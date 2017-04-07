@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using panatura.Model;
+using panatura.Model.Repositories;
 
 namespace panatura
 {
@@ -29,6 +31,10 @@ namespace panatura
         {
             // Add framework services.
             services.AddMvc();
+
+            // Repositories
+            services.AddSingleton<PanaturaContext>();
+            services.AddSingleton<IProductsRepository, ProductsRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

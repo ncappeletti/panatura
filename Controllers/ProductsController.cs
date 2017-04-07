@@ -1,28 +1,28 @@
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using panatura.Model;
 using panatura.Model.Entities;
+using panatura.Model.Repositories;
 
 namespace panatura.Controllers
 {
     public class ProductsController : Controller
     {
+        readonly IProductsRepository repository;
+
+        public ProductsController(IProductsRepository productRepository)
+        {
+            this.repository = productRepository;
+        }
+
         public IActionResult Index()
         {
-            using (var db = new PanaturaContext())
-            {
-                var newProduct = new Product();
-                newProduct.Name = "Saumerio";
-                newProduct.Code = "S00001";
-                db.Products.Add(newProduct);
-                db.SaveChanges();
 
-                var products = db.Products.ToList();
-            }
+            var algo = this.repository.FindAll().ToList();
 
+            var newProduct = new Product();
+            newProduct.Name = "Jabon";
+            newProduct.Code = "J00001";
+            this.repository.Save(newProduct);
 
             return View();
         }
