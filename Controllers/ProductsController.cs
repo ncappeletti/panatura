@@ -22,9 +22,9 @@ namespace panatura.Controllers
             var newProduct = new Product();
             newProduct.Name = "Jabon";
             newProduct.Code = "J00001";
-            this.repository.Save(newProduct);
+           // this.repository.Save(newProduct);
 
-            return View();
+            return View(newProduct);
         }
     }
 }
