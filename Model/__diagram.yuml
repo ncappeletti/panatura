@@ -1,0 +1,7 @@
+// {type:class}
+// {direction:leftToRight}
+// {generate:false}
+[Products|Id;Code;Name]
+[ProductProviders|ProductId;ProviderId]
+[Providers|Id;Code;Name]
+
